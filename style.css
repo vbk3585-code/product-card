@@ -10,7 +10,9 @@ body {
   font-size: 13px;
   line-height: 18px;
   background-color: #FFFFFF;
-  background-image: url("images/photo_6.png");
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .title {
@@ -27,6 +29,11 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 45px;
+  background-image: url("images/photo_6.png");
+  background-repeat: no-repeat;
+  background-position: left clamp(0px, 50vw, 80px);
+  background-clip: padding-box;
+  width: 1110px;
 }
 
 .product-list {
