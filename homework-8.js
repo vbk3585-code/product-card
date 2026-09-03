@@ -100,7 +100,6 @@ let booksHarryPotter = [
 ];
 
 const allBooks = [...books, ...booksHarryPotter];
-///console.log(allBooks);
 
 // 10
 function addRarity(books) {
