@@ -7,25 +7,29 @@ const newArray = numbers.slice(4)
 console.log(newArray)
 //3
 const fruits = ["Апельсин", "Слива", "Яблоко"];
+function findElement(array, i) {
+    if (typeof i !== 'string') {
+        return "Некорректные входные данные";
+    }
+    return array.includes(i);
+}
+console.log(findElement(fruits, "Слива"));
+console.log(findElement(fruits, "1"));
 
 //4
-function turnOver(set, callback) {
-    const arr = Array.from(set);
-    for (let i = arr.length - 1; i >= 0; i--) {
-        callback(arr[i], i, arr);
-    }
+function turnOver(arr) {
+    return arr.reverse();
 }
 
-turnOver(fruits, (i) => {
-    console.log(i);
-});
-turnOver(numbers, (i) => {
-    console.log(i);
-});
+turnOver(fruits);
+turnOver(numbers);
+
+console.log(fruits);
+console.log(numbers);
 
 //7
-const filterComments = comments.filter(i => i.email.includes('.com'))
-console.log(filterComments)
+const dotComEmails = comments.filter(i => i.email.includes('.com'))
+console.log(dotComEmails)
 
 //8-10
 const newComments = comments.map(i => ({...i, postId: i.id <= 5 ? 2 : 1, isInvalid: i.body.length > 180}))
