@@ -33,6 +33,3 @@ function currentBudget (budget) {
         console.log(`Вам не хватает ${priceProduct-budget} \u20BD, пополните баланс.`);
     }
 }
-
-
-
