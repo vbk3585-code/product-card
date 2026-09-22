@@ -61,7 +61,7 @@ body {
     margin-bottom: 30px;
 }
 
-.product-card {
+.product_card {
     width: 340px;
     height: 573px;
     padding: 25px;
@@ -97,7 +97,6 @@ body {
 .buttons{
     margin-top: 80px;
     display: flex;
-    /*flex-wrap: wrap;*/
     justify-content: center;
     gap: 20px;
 }
@@ -140,4 +139,9 @@ body {
     margin-top: 25px;
     color: #515076;
     font-size: 20px;
+}
+
+.btn {
+    font-size: 16px;
+    background-color: red;
 }
