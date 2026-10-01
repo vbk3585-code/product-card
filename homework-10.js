@@ -1,18 +1,18 @@
-import { card } from "./card.js";
-const PATH = "/images/";
+import { products } from "./productsCatalog.js";
+const PATH = "images/";
 const cardTemplate = document.getElementById("card-template");
 const cardList = document.getElementById("card-list");
 const numberCards = getNumberCards();
-function renderCards(card) {
-    card.forEach((card) => {
+function renderCards(products) {
+    products.forEach((products) => {
       const cardClone = cardTemplate.content.cloneNode(true);
-      cardClone.querySelector(".image").src = PATH + card.image;
-      cardClone.querySelector(".image").alt = card.alt;
-      cardClone.querySelector(".product-card__name").textContent = card.name;
-      cardClone.querySelector(".product-card__caption").textContent = card.caption;
-      cardClone.querySelector(".product-card__description").textContent = card.description;
-      cardClone.querySelector(".product-card__price").textContent = card.price;
-      const compoundItems = card.compound.map((item) => {
+      cardClone.querySelector(".image").src = PATH + products.image;
+      cardClone.querySelector(".image").alt = products.alt;
+      cardClone.querySelector(".product-card__name").textContent = products.name;
+      cardClone.querySelector(".product-card__caption").textContent = products.caption;
+      cardClone.querySelector(".product-card__description").textContent = products.description;
+      cardClone.querySelector(".product-card__price").textContent = products.price;
+      const compoundItems = products.compound.map((item) => {
         const li = document.createElement("li");
         li.textContent = item;
         return li;
@@ -24,12 +24,12 @@ function renderCards(card) {
       cardList.appendChild(cardClone);
     });
 }
-if (numberCards) renderCards(card.slice(0, numberCards));
+if (numberCards) renderCards(products.slice(0, numberCards));
 
-const namesDescriptions = card.reduce((acc, card) => {
-  acc.push({ [card.name]: card.description });
+const namesDescriptions = products.reduce((acc, products) => {
+  acc.push({ [products.name]: products.description });
   return acc;
-}, {});
+}, []);
 
 console.log(namesDescriptions);
 

@@ -1,22 +1,25 @@
 // Покраска всех карточек
 
-const ProductCard = document.querySelectorAll('.product-card');
-const changeColorAllCard= document.querySelector('#change-color-all-card');
+const changeColorAllCard = document.querySelector('#change-color-all-card');
+const changeColorFirstCardButton = document.querySelector('#change-color-first-card');
 const greenColorHash = '#00ff00';
 const blueColorHash = '#0000ff';
 
+// Покраска всех карточек
 changeColorAllCard.addEventListener('click', () => {
-    ProductCard.forEach((card) => card.style.backgroundColor = greenColorHash)
-})
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach((card) => {
+        card.style.backgroundColor = greenColorHash;
+    });
+});
 
 // Покраска первой карточки
-
-const firstProductCard = document. querySelector('.product-card');
-const changeColorFirstCardButton = document.querySelector('#change-color-first-card');
-
 changeColorFirstCardButton.addEventListener('click', () => {
-    firstProductCard.style.backgroundColor = blueColorHash;
-})
+    const firstProductCard = document.querySelector('.product-card');
+    if (firstProductCard) {
+        firstProductCard.style.backgroundColor = blueColorHash;
+    }
+});
 
 // Открыть Google
 
@@ -56,3 +59,11 @@ changeColorButton.addEventListener('click', function() {
     index = (index + 1) % colors.length;
     changeColorButton.style.backgroundColor = colors[index];
 });
+
+
+const changeColorMeButton = document.querySelector('.btn');
+if (changeColorMeButton) {
+    changeColorMeButton.addEventListener('click', () => {
+        changeColorMeButton.style.backgroundColor = '#ff2222';
+    });
+}
