@@ -1,47 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог продуктов</title>
-  <link rel="stylesheet" href="./styles/style.css">
+  <title>Product Cards — каталог, футер, модальное окно</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style_footer.css">
 </head>
 <body>
-    <main class="products-container">
-      <div class="cards-catalog__box">
-          <h1 class="title">Выбери свой продукт</h1>
+  <main class="page">
+    <h1>Добро пожаловать в Product Cards</h1>
+    <p>У нас самые лучшие продукты для кожи.</p>
+    <button type="button" class="btn btn--primary" id="openModalBtn">
+      Регистрация
+    </button>
+  </main>
+
+  <main class="products-container">
+    <div class="cards-catalog__box">
+      <h1 class="title">Выбери свой продукт</h1>
+    </div>
+
+    <div class="buttons">
+      <button id="change-color-first-card">Сменить цвет 1 карточки</button>
+      <button id="change-color-all-card">Сменить цвет всех карточек</button>
+      <button id="open-google">Открыть страницу Google.com</button>
+      <button id="output-console-log">Вывести сообщение в консоль лог</button>
+      <button id="change-color-button">Изменение цвета кнопки</button>
+      <button class="btn">нажми на меня</button>
+    </div>
+
+    <ul id="card-list" class="product-list"></ul>
+
+    <template id="card-template">
+      <li class="product-card card">
+        <img src="" alt="" class="image" />
+        <span class="product-card__caption"></span>
+        <h2 class="product-card__name"></h2>
+        <p class="product-card__description"></p>
+        <div class="product-card__components">
+          <span class="product-card__name">Состав:</span>
+          <ul class="product-list"></ul>
+        </div>
+        <div class="product-card__price price">
+          <b class="title">Цена</b>
+          <span class="product-card__price"></span>
+        </div>
+      </li>
+    </template>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <section class="footer__brand" aria-labelledby="footer-brand-title">
+          <h2 id="footer-brand-title" class="footer__logo">Product Cards</h2>
+          <p class="footer__tagline">У Нас Самые Лучшие Продукты Для Кожи!</p>
+
+          <ul class="footer__socials" aria-label="Социальные сети">
+            <li>
+              <a href="#" aria-label="Telegram"><img src="images/telegram-icon.png" alt="Telegram" width="24" height="18"></a>
+            </li>
+            <li>
+              <a href="#" aria-label="VK"><img src="images/vk-icon.png" alt="VK" width="24" height="14"></a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="footer__subscribe" aria-labelledby="footer-subscribe-title">
+          <h2 id="footer-subscribe-title" class="footer__subscribe-title">Подпишись на наши акции:</h2>
+
+          <form class="subscribe-form"  novalidate>
+            <label class="visually-hidden" for="subscribe-email">Email</label>
+            <input id="subscribe-email" class="subscribe-form__input" type="email" name="email" placeholder="Введи Email..." required>
+            <button class="subscribe-form__button" type="submit">Подписаться</button>
+          </form>
+        </section>
+
+        <nav class="footer__nav" aria-labelledby="footer-nav-title">
+          <h2 id="footer-nav-title" class="footer__nav-title">Быстрые ссылки</h2>
+          <ul class="footer__nav-list">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Магазин</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="buttons">
-          <button id="change-color-first-card">Сменить цвет 1 карточки</button>
-          <button id="change-color-all-card">Сменить цвет всех карточек</button>
-          <button id="open-google">Открыть страницу Google.com</button>
-          <button id="output-console-log">Вывести сообщение в консоль лог</button>
-          <button id="change-color-button">Изменение цвета кнопки</button>
-          <button class="btn" id="change-color-me-button">нажми на меня</button>
+
+      <div class="footer__bottom">
+        <hr class="footer__divider" aria-hidden="true">
+        <p class="footer__copyright">www.product-cards.com@all right reserve</p>
       </div>
-      <ul id="card-list" class="product-list"></ul>
-      <template id="card-template">
-          <li class="product-card card">
-              <img src="" alt="" class="image" />
-              <span class="product-card__caption"></span>
-              <h2 class="product-card__name"></h2>
-              <p class="product-card__description"></p>
-              <div class="product-card__components compound">
-                  <span class="product-card__name">Состав:</span>
-                  <ul class="product-list"></ul>
-              </div>
-              <div class="product-card__price price">
-                  <b class="title">Цена</b>
-                  <span class="product-card__price"></span>
-              </div>
-          </li>
-      </template>
-    </main>
-    <script src="main.js"></script>
-    <script src="homework-7.js"></script>
-    <script src="homework-8.js"></script>
-    <script type="module" src="homework-9.js"></script>
-    <script type="module" src="homework-10.js"></script>
+
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+
+    <div class="modal" role="document">
+      <header class="modal__header">
+        <h2 class="modal__title" id="modalTitle">Регистрация</h2>
+        <button
+          type="button" class="modal__close" id="closeModalBtn"
+          aria-label="Закрыть окно">&times;</button>
+      </header>
+
+      <form class="modal__form" id="registerForm" novalidate>
+
+        <div class="form-field">
+          <label for="firstName">Имя</label>
+          <input
+            type="text" id="firstName" name="firstName"
+            placeholder="Введите имя" required minlength="2" maxlength="30" pattern="[A-Za-zА-Яа-яЁё\s\-]+"
+            title="Только буквы, пробелы и дефис, от 2 до 30 символов">
+        </div>
+
+        <div class="form-field">
+          <label for="lastName">Фамилия</label>
+          <input
+            type="text" id="lastName" name="lastName"
+            placeholder="Введите фамилию" required minlength="2" maxlength="30" pattern="[A-Za-zА-Яа-яЁё\s\-]+"
+            title="Только буквы, пробелы и дефис, от 2 до 30 символов">
+        </div>
+
+        <div class="form-field">
+          <label for="birthDate">Дата рождения</label>
+          <input
+            type="date" id="birthDate" name="birthDate"
+            required max="2012-12-31">
+        </div>
+
+        <div class="form-field">
+          <label for="login">Логин</label>
+          <input
+            type="text" id="login" name="login"
+            placeholder="Придумайте логин" required minlength="4" maxlength="20" pattern="[A-Za-z0-9_]+"
+            title="Латиница, цифры и _, от 4 до 20 символов">
+        </div>
+
+        <div class="form-field">
+          <label for="password">Пароль</label>
+          <input
+            type="password" id="password" name="password"
+            placeholder="Минимум 6 символов" required minlength="6">
+        </div>
+
+        <div class="form-field">
+          <label for="passwordRepeat">Повторите пароль</label>
+          <input
+            type="password" id="passwordRepeat" name="passwordRepeat"
+            placeholder="Повторите пароль" required minlength="6">
+        </div>
+
+        <footer class="modal__footer">
+          <button type="button" class="btn btn--ghost" id="cancelBtn">Отмена</button>
+          <button type="submit" class="btn btn--primary">Зарегистрироваться</button>
+        </footer>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="homework-7.js"></script>
+  <script src="homework-8.js"></script>
+  <script type="module" src="homework-9.js"></script>
+  <script type="module" src="homework-10.js"></script>
+  <script type="module" src="homework-11.js"></script>
+
 </body>
-</html>  
+</html>
